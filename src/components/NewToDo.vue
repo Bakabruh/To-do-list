@@ -2,7 +2,7 @@
 
     <div class="add-section">
 
-        <input v-model="content" placeholder="Enter the task name">
+        <input v-model="content" placeholder="Task name">
         <button @click="addTask(content)">+</button>
 
     </div>
@@ -23,8 +23,9 @@ export default {
         addTask(content) {
             if(content != '') {
                 this.$emit('newTask', this.content)
+                this.content = null
             } else {
-                alert('nothing')
+                return 0
             }
         }
     }

@@ -1,7 +1,7 @@
 <template>
     
     <div class="list" :key="task" v-for="task in tasks">
-        <input :id="tasks.indexOf(task)" class="basic" @click="addTask" type="checkbox">
+        <input @click="checker(tasks.indexOf(task))" :id="tasks.indexOf(task)" type="checkbox">
         <label :for="tasks.indexOf(task)" :id="'index' + tasks.indexOf(task)">{{ task.name }}</label>
         <button @click="removeTask(tasks.indexOf(task))"><i class="fas fa-trash"></i></button>
     </div>
@@ -22,24 +22,16 @@ export default {
 
     },
 
-    data() {
-        return {
-            activeClass: 'checked',
-            disableClass: '',
-            isActive: false
-        }
-    },
-
     methods: {
-        /*checker(index) {
-            let checkbox =  document.getElementById('check')
+        checker(task) {
+            let checkbox =  document.getElementById(task)
 
             if(checkbox.checked) {
-                checkbox.className = "disabled"
+                document.getElementById('index' + task).className = "disabled"
             } else {
-                checkbox.className = "enabled"
+                document.getElementById('index' + task).className = "enabled"
             }
-        },*/
+        },
 
         removeTask(task) {
             this.$emit('removeTask', task)
@@ -57,7 +49,7 @@ export default {
         justify-content: space-between;
     }
 
-    .list p {
+    .list label {
         margin: 20px 10px;
     }
 

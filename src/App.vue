@@ -25,6 +25,9 @@ export default {
 <style>
 
   #app {
+    display: flex;
+    align-content: center;
+    justify-content: center;
     background-color: rgb(226, 196, 26);
     height: 100vh;
   }

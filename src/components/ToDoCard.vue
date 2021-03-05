@@ -46,10 +46,6 @@ export default {
             console.log(payload)
         },
 
-        /*checkTask(task) {
-            this.tasks.task
-        },*/
-
         deleteTask(task) {
             this.tasks.splice(task, 1)
         }
@@ -68,7 +64,7 @@ export default {
         display: flex;
         flex-direction: column;
         width: 800px;
-        height: 500px;
+        min-height: 300px;
         margin: auto;
     }
 
